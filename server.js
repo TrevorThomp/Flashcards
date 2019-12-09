@@ -4,11 +4,13 @@
 // Application Dependencies 
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(cookieParser())
 
 app.set('view engine', 'pug');
 
@@ -21,6 +23,7 @@ app.get('/hello', (req,res) => {
 })
 
 app.post('/hello', (req,res) => {
+  res.cookie('username', req.body.username);
   res.render('hello', { name:req.body.username})
 })
 
