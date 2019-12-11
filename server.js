@@ -14,6 +14,11 @@ app.use(cookieParser())
 
 app.set('view engine', 'pug');
 
+app.use((req,res,next) => {
+  
+})
+
+
 app.get('/', (req,res) => {
   const name = req.cookies.username;
   name ? res.render('index', { name }) : res.redirect('hello')
