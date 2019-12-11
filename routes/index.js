@@ -20,10 +20,4 @@ router.post('/hello', (req,res) => {
   res.redirect('/')
 })
 
-router.get('/card', (req,res) => {
-  res.locals.prompt = 'Who is buried in Grants Tomb';
-  res.locals.hint = 'Think about the tomb?';
-  res.render('card')
-});
-
 module.exports = router;
