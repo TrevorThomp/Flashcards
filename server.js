@@ -14,11 +14,6 @@ app.use(cookieParser())
 
 app.set('view engine', 'pug');
 
-app.use((req,res,next) => {
-  
-})
-
-
 app.get('/', (req,res) => {
   const name = req.cookies.username;
   name ? res.render('index', { name }) : res.redirect('hello')
@@ -43,5 +38,18 @@ app.get('/card', (req,res) => {
   res.locals.hint = 'Think about the tomb?';
   res.render('card')
 });
+
+// Error Handler
+app.use((req,res,next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+})
+
+app.use((err,req,res,next) => {
+  res.locals.error = err;
+  res.status(err.status);
+  res.render('error');
+})
 
 app.listen(3000, console.log(`Listening on Port: 3000`));
