@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
 
 app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/public'));
 
 const mainRoutes = require('./routes');
 const cardRoutes = require('./routes/cards');
@@ -33,4 +34,4 @@ app.use((err,req,res,next) => {
   res.render('error');
 })
 
-app.listen(3000, console.log(`Listening on Port: 3000`));
+app.listen(4000, console.log(`Listening on Port: 4000`));
