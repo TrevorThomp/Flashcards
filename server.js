@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Application Dependencies 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -42,4 +41,4 @@ app.use((err,req,res,next) => {
   res.render('error');
 })
 
-app.listen(4000, console.log(`Listening on Port: 4000`));
+app.listen(3000, console.log(`Listening on Port: 4000`));
