@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+  h1 Test
+  .form-container
+    form(action='/register', method='post')
+      label Please enter your name:
+        input(type='text', name='username')
+      label Please enter your email:
+        input(type='text', name='username')
+      label Please enter your password:
+        input(type='text', name='username')
+      label Please confirm your password:
+        input(type='text', name='username')
+      button(type='submit') Submit

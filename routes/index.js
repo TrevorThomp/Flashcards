@@ -10,6 +10,10 @@ router.get('/hello', (req,res) => {
   res.render('hello')
 })
 
+router.get('/register', (req,res) => {
+  res.render('register')
+})
+
 router.post('/goodbye', (req,res) => {
   res.clearCookie('username')
   res.redirect('hello')
