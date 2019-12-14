@@ -5,8 +5,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose')
 
 const app = express();
+
+// mongoDB Connection
+mongoose.connect('mongodb://localhost:27017/flashcards', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+const db = mongoose.connection;
+
+// mongoDB error
+db.on('err', console.error.bind(console, 'connection error:'))
 
 // Middleware
 app.use(bodyParser.urlencoded({extended: false}))
